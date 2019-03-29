@@ -20,42 +20,78 @@
         margin: 0;
     }
     
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .textOnBorder::before {
+        content: attr(name);
+        float: left;
+        padding: 0 5px;
+        margin: -29px 0 0 30px;
+        background: rgb(234, 238, 243);
+        font-size: 20px;
+        border-radius: 4px;
+    }
+    
     section {
         border: 3px dashed black;
-        padding: 15px;
-        margin: 0px 180px 80px 180px;
+        margin-bottom: 90px;
         display: inline-block;
+    }
+    
+    .sectionContent {
+        position: relative;
+        padding: 15px;
+        display: inline-block;
+    }
+    
+    .sectionContent p {
+        margin: 0;
+    }
+    
+    .sectionContent span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+    }
+    
+    .sectionContent span:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-origin: left;
+        transition: 0.5s;
+        opacity: 0.3;
+    }
+    
+    .sectionContent:hover span:before {
+        transform: scaleY(0);
+        background-color: aqua;
+    }
+    
+    .sectionContent:hover {
+        transition: 2s;
+        background: rgba(27, 108, 201, 0.247);
     }
     
     .aboutMeDescription {
         margin: 0;
     }
     
-    .textOnBorder {
+    .workExperienceContent {
+        width: 50%;
         float: left;
-        padding: 0 5px;
-        margin: -27px 0 0 30px;
-        background: rgb(234, 238, 243);
-        font-size: 18px;
+        margin-bottom: 20px;
     }
     
-    div .textOnBorder {
-        content: "";
-        display: block;
-        clear: both;
-    }
-    
-    .jobName div {
-        width: 49%;
-        display: inline-block;
-        vertical-align: top;
-    }
-    
-    .jobName:nth-child(2n+1) {
-        padding-top: 30px;
-    }
-    
-    .blocks p {
+    .workExperienceContent p {
         margin: 0px;
     }
     
@@ -71,91 +107,12 @@
         border: 1px solid black;
         cursor: pointer;
         transition: 0.5s;
-        /* overflow: hidden; */
     }
     
     .logo i {
         font-size: 25px;
         vertical-align: middle;
     }
-    
-    div.logo:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-    /* Hover effects */
-    
-    .box {
-        position: relative;
-    }
-    
-    .box span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        pointer-events: none;
-    }
-    
-    .box span:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(27, 108, 201, 0.247);
-        transform-origin: left;
-        transition: 0.5s;
-        opacity: 0.3;
-    }
-    
-    .box:hover span:before {
-        transform: scaleY(0);
-        background-color: aqua;
-    }
-    
-    .box:hover {
-        transition: 2s;
-    }
-    
-    .box span:nth-child(1) {
-        transform: rotate(0deg);
-    }
-    
-    .box span:nth-child(2) {
-        transform: rotate(180deg);
-    }
-    /* first section hover */
-    
-    .aboutMeDescription:before {
-        content: attr(data-text);
-        position: absolute;
-        width: 0%;
-        color: rgb(0, 0, 0);
-        overflow: hidden;
-        transition: 0.5s;
-    }
-    
-    .aboutMeDescription:hover:before {
-        width: 100%;
-    }
-    /* scnd section hover */
-    
-    .jobDescription:before {
-        content: attr(data-text);
-        position: absolute;
-        width: 0%;
-        color: rgb(0, 0, 0);
-        overflow: hidden;
-        transition: 0.5s;
-    }
-    
-    .jobDescription:hover:before {
-        width: 49%;
-    }
-    /* thrd section tooltip/hover*/
     
     .logo button.btn::before {
         content: attr(data-tooltip);
@@ -226,7 +183,6 @@
     }
     
     .btn7:hover {
-        /* border: 1px solid; */
         padding: 5px;
         box-shadow: 2px 2px red;
         border-top: 1px dashed black;
