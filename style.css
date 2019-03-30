@@ -39,19 +39,19 @@
         border: 3px dashed black;
         margin-bottom: 90px;
         display: inline-block;
+        width: 100%;
     }
     
-    .sectionContent {
+    .sectionWrapper {
         position: relative;
         padding: 15px;
-        display: inline-block;
     }
     
-    .sectionContent p {
+    .sectionWrapper p {
         margin: 0;
     }
     
-    .sectionContent span {
+    .sectionWrapper span {
         position: absolute;
         top: 0;
         left: 0;
@@ -61,7 +61,7 @@
         pointer-events: none;
     }
     
-    .sectionContent span:before {
+    .sectionWrapper span:before {
         content: "";
         position: absolute;
         width: 100%;
@@ -71,33 +71,30 @@
         opacity: 0.3;
     }
     
-    .sectionContent:hover span:before {
+    .sectionWrapper:hover span:before {
         transform: scaleY(0);
         background-color: aqua;
     }
     
-    .sectionContent:hover {
+    .sectionWrapper:hover {
         transition: 2s;
         background: rgba(27, 108, 201, 0.247);
     }
     
-    .aboutMeDescription {
-        margin: 0;
+    .sectionContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
     
-    .workExperienceContent {
+    section div.workExperienceContent {
         width: 50%;
-        float: left;
         margin-bottom: 20px;
     }
     
-    .workExperienceContent p {
-        margin: 0px;
-    }
-    
-    .logo {
-        display: inline-block;
-        margin: 15px 40px 15px 40px;
+    section div.sectionContent .logo {
+        padding: 5px;
+        margin: 15px 60px 15px 40px;
     }
     
     .logo button {
